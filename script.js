@@ -64,5 +64,11 @@ form.addEventListener("submit", (e) => {
       text: textttt.value 
     })
   })
-  .then(res => console.log(res))
+  .then(res => {
+    if(res) {
+      alert("Send message successfull")
+    } else {
+      alert("Xatolik Ketdi")
+    }
+  })
 })

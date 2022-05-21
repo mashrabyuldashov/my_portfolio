@@ -43,3 +43,26 @@ for (var i = 0; i < navLinks.length; i++) {
     menuBtn.style.pointerEvents = "auto";
   });
 }
+
+let form = document.querySelector(".contact-form")
+let subject = document.querySelector(".subject")
+let email = document.querySelector(".email")
+let password = document.querySelector(".password")
+let textttt = document.querySelector(".textttt")
+form.addEventListener("submit", (e) => {
+  e.preventDefault()
+
+  fetch(' https://appsender.herokuapp.com', {
+    method: "POST", 
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      subject: subject.value,
+      email: email.value,
+      password: password.value,
+      text: textttt.value 
+    })
+  })
+  .then(res => console.log(res))
+})
